@@ -94,11 +94,11 @@ def run():
 
     if ARCH == "ppc64le":
         mkdir('re2c_source')
+        check_call(['yum', 'install', '-y', 'openssl-devel', 'ninja-build'])
         check_call(['curl', '-LJ', '-o', 're2c.tar.gz', 'https://github.com/skvadrik/re2c/archive/2.0.3.tar.gz'])
         check_call(['tar', 'xzf', 're2c.tar.gz', '-C', 're2c_source', '--strip-components=1'])
-        check_call(['cmake', '-Hre2c_source', '-Bre2c_build', '-DRE2C_BUILD_RE2GO=OFF'])
+        check_call(['cmake', '-G', 'Ninja', '-Hre2c_source', '-Bre2c_build', '-DRE2C_BUILD_RE2GO=OFF'])
         check_call(['cmake', '--build', 're2c_build', '--target', 'install'])
-        check_call(['yum', 'install', '-y', 'openssl-devl'])
     else:
         check_call(['yum', 'install', '-y', 're2c', 'bison'])
 
