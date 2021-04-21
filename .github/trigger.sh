@@ -18,7 +18,7 @@ function dispatch() {
       -d "{\"ref\":\"$3\",\"inputs\":{\"wip\":\"$2\"}}"
 }
 
-branch=wip
+branch=ppc
 wip=true
 
 case $1 in
@@ -37,13 +37,13 @@ case $1 in
         # .github/workflows/manylinux.yml
         dispatch 4811844 $wip $branch
         # .github/workflows/pipsource.yml
-        dispatch 4823035 $wip $branch
+        #dispatch 4823035 $wip $branch
         # .github/workflows/ppa-dev.yml
-        dispatch 4881510 $wip $branch
+        #dispatch 4881510 $wip $branch
         # .github/workflows/conda-dev.yml
-        dispatch 4923491 $wip $branch
+        #dispatch 4923491 $wip $branch
         # .github/workflows/pipwinmac-wip.yml
-        dispatch 4978730 $wip $branch
+        #dispatch 4978730 $wip $branch
         ;;
     *)
         echo "usage: trigger {list,dev,release}"
